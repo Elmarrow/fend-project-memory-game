@@ -42,21 +42,29 @@
  //populating cards array
 
  const cardsList = [{
-     "img": "img/uada.jpg"
+    "name": "UADA", 
+    "img": "img/uada.jpg"
  },{
-     "img": "img/exodus.jpg"
+    "name": "Exodus",
+    "img": "img/exodus.jpg"
  },{
-     "img": "img/slayer.jpg"
+    "name": "Slayer", 
+    "img": "img/slayer.jpg"
  },{
-     "img": "img/blacksabbath.jpg"
+    "name": "BlackSabbath", 
+    "img": "img/blacksabbath.jpg"
  },{
-     "img": "img/gybe.jpg"
+    "name": "Gybe", 
+    "img": "img/gybe.jpg"
  },{
-     "img": "img/maggotbrain.jpg"
+    "name": "Funkadelic", 
+    "img": "img/maggotbrain.jpg"
  },{
-     "img": "img/russian.jpg"
+    "name": "RussianCircles", 
+    "img": "img/russian.jpg"
  },{
-     "img": "img/theorgan.jpg"
+    "name": "TheOrgan", 
+    "img": "img/theorgan.jpg"
  }];
 
 
@@ -71,3 +79,11 @@
  
  //Append the grid section to the container div 
  game[0].appendChild(grid);
+
+
+ // Displaying the images to the fton end
+ cardsList.forEach(item => {
+     const card = document.createElement("div");
+     card.classList.add("card");
+
+ })
