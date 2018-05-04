@@ -81,9 +81,12 @@
  game[0].appendChild(grid);
 
 
- // Displaying the images to the fton end
+ // Displaying the images to the front end
  cardsList.forEach(item => {
-     const card = document.createElement("div");
+    const {name, img} = item;
+    const card = document.createElement("div");
      card.classList.add("card");
-
- })
+     card.dataset.name = name;
+     card.style.backgroundImage = `url(${img})`;
+     grid.appendChild(card);
+ });
