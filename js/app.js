@@ -59,3 +59,15 @@
      "img": "img/theorgan.jpg"
  }];
 
+
+ //Choosing div with the class container
+ const game = document.getElementsByClassName("container");
+
+
+ //Create a section with the class grid
+ const grid = document.createElement("section");
+ grid.setAttribute('class', 'grid');
+ 
+ 
+ //Append the grid section to the container div 
+ game[0].appendChild(grid);
