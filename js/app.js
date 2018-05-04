@@ -11,7 +11,7 @@
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
+/*function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
@@ -24,6 +24,7 @@ function shuffle(array) {
 
     return array;
 }
+*/
 
 
 /*
@@ -36,3 +37,25 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+
+ //populating cards array
+
+ const cardsList = [{
+     "img": "img/uada.jpg"
+ },{
+     "img": "img/exodus.jpg"
+ },{
+     "img": "img/slayer.jpg"
+ },{
+     "img": "img/blacksabbath.jpg"
+ },{
+     "img": "img/gybe.jpg"
+ },{
+     "img": "img/maggotbrain.jpg"
+ },{
+     "img": "img/russian.jpg"
+ },{
+     "img": "img/theorgan.jpg"
+ }];
+
