@@ -68,6 +68,10 @@
  }];
 
 
+
+ //Duplicating Array for second indentical set
+ let wholeGrid = cardsList.concat(cardsList);
+
  //Choosing div with the class container
  const game = document.getElementsByClassName("container");
 
@@ -82,7 +86,7 @@
 
 
  // Displaying the images to the front end
- cardsList.forEach(item => {
+ wholeGrid.forEach(item => {
     const {name, img} = item;
     const card = document.createElement("div");
      card.classList.add("card");
