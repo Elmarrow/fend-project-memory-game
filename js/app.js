@@ -72,6 +72,11 @@
  //Duplicating Array for second indentical set
  let wholeGrid = cardsList.concat(cardsList);
 
+
+ //Random sorting of the wholeGrid array
+ wholeGrid.sort(() => 0.5 - Math.random());
+
+ 
  //Choosing div with the class container
  const game = document.getElementsByClassName("container");
 
