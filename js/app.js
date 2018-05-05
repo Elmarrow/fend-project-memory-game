@@ -102,10 +102,14 @@
 
 
  // Setting event listener for card selection
+ let count = 0;
  grid.addEventListener("click", function (event){
      let selected = event.target;
      if (selected.nodeName === "SECTION") {
          return;
      }
-     selected.classList.add ("open");
+     if (count < 2){
+         count++;
+         selected.classList.add ("open");
+     }
  });

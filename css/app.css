@@ -77,7 +77,7 @@ h1 {
 
 .grid .card.match {
     cursor: default;
-    background: #02ccba;
+    background-image: none !important;
     font-size: 33px;
 }
 
