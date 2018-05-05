@@ -42,17 +42,17 @@
  //populating cards array
 
  const cardsList = [{
-    "name": "UADA", 
-    "img": "img/uada.jpg"
+    "name": "PinkFloyd", 
+    "img": "img/pinkfloyd.jpg"
  },{
-    "name": "Exodus",
-    "img": "img/exodus.jpg"
+    "name": "Blur",
+    "img": "img/blur.jpg"
  },{
-    "name": "Slayer", 
-    "img": "img/slayer.jpg"
+    "name": "AphexTwin", 
+    "img": "img/aphextwin.jpg"
  },{
-    "name": "BlackSabbath", 
-    "img": "img/blacksabbath.jpg"
+    "name": "JoyDivision", 
+    "img": "img/joydivision.jpg"
  },{
     "name": "Gybe", 
     "img": "img/gybe.jpg"
@@ -74,9 +74,9 @@
 
 
  //Random sorting of the wholeGrid array
- wholeGrid.sort(() => 0.5 - Math.random());
+ wholeGrid.sort(() => 0.25 - Math.random());
 
- 
+
  //Choosing div with the class container
  const game = document.getElementsByClassName("container");
 
@@ -98,4 +98,14 @@
      card.dataset.name = name;
      card.style.backgroundImage = `url(${img})`;
      grid.appendChild(card);
+ });
+
+
+ // Setting event listener for card selection
+ grid.addEventListener("click", function (event){
+     let selected = event.target;
+     if (selected.nodeName === "SECTION") {
+         return;
+     }
+     selected.classList.add ("open");
  });
