@@ -96,13 +96,28 @@
     const card = document.createElement("div");
      card.classList.add("card");
      card.dataset.name = name;
-     card.style.backgroundImage = `url(${img})`;
+
+     const front = document.createElement("div");
+     front.classList.add("front");
+     
+
+     const back = document.createElement("div");
+     back.classList.add("back");
+     back.style.backgroundImage = `url(${img})`;
+
      grid.appendChild(card);
+     card.appendChild(front);
+     card.appendChild(back);
  });
 
 
- // Setting event listener for card selection
+ //Setting up variables for selection and matching
  let count = 0;
+ let firstChoice = "";
+ let secondCoice = "";
+
+
+ // Setting event listener for card selection
  grid.addEventListener("click", function (event){
      let selected = event.target;
      if (selected.nodeName === "SECTION") {
@@ -110,6 +125,7 @@
      }
      if (count < 2){
          count++;
-         selected.classList.add ("open");
+         if (count === 1)
+         selected.classList.add ("show");
      }
  });

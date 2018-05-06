@@ -40,13 +40,13 @@ h1 {
 .grid {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(180deg, #3faff0 0%, #a2ece9 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin: 0 0 3em;
 }
@@ -54,31 +54,42 @@ h1 {
 .grid .card {
     height: 125px;
     width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
+    background: #464670;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-.grid .card.open {
+.grid .card.front {
     transform: rotateY(0);
-    background: #02b3e4;
+    
     cursor: default;
 }
 
-.grid .card.show {
-    font-size: 33px;
+.back,
+.front {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front{
+    background: #02b3e4 url ("img/frontview.jpg") ;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .grid .card.match {
-    cursor: default;
-    background-image: none !important;
-    font-size: 33px;
+    background: linear-gradient(160deg, #464670 0%, #dab78a 100%); !important;
 }
 
 /*
