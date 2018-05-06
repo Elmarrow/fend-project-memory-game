@@ -91,6 +91,7 @@
 
 
  // Displaying the images to the front end
+ const frontView = "img/frontview.jpg";
  wholeGrid.forEach(item => {
     const {name, img} = item;
     const card = document.createElement("div");
@@ -99,7 +100,7 @@
 
      const front = document.createElement("div");
      front.classList.add("front");
-     
+     front.style.backgroundImage= `url(${frontView})`;
 
      const back = document.createElement("div");
      back.classList.add("back");
