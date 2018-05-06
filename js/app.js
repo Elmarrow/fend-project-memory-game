@@ -126,7 +126,15 @@
      }
      if (count < 2){
          count++;
-         if (count === 1)
-         selected.classList.add ("show");
+         if (count === 1){
+            firstChoice = selected.parentNode.dataset.name;
+            console.log(firstChoice);
+            selected.parentNode.classList.add("show");
+         } else {
+             secondCoice = selected.parentNode.dataset.name;
+             console.log(secondCoice);
+             selected.parentNode.classList.add("show");
+         }
+         
      }
  });
