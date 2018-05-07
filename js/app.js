@@ -111,8 +111,13 @@
      card.appendChild(back);
  });
 
-const success = () => {
 
+ //Adding the success class to the shown cards is there is a success
+const success = () => {
+    const matched = document.querySelectorAll (".show");
+    matched.forEach(card => {
+        card.classList.add("success");
+    });
 }
 
 
