@@ -111,11 +111,17 @@
      card.appendChild(back);
  });
 
+const success = () => {
+
+}
+
+
 
  //Setting up variables for selection and matching
  let count = 0;
  let firstChoice = "";
- let secondCoice = "";
+ let secondChoice = "";
+ let delay = 1000;
 
 
  // Setting event listener for card selection
@@ -131,10 +137,15 @@
             console.log(firstChoice);
             selected.parentNode.classList.add("show");
          } else {
-             secondCoice = selected.parentNode.dataset.name;
-             console.log(secondCoice);
+             secondChoice = selected.parentNode.dataset.name;
+             console.log(secondChoice);
              selected.parentNode.classList.add("show");
          }
-         
+     if (firstChoice && secondChoice) {
+         if (firstChoice === secondChoice){
+         success();
+         }
+         resetMove ();
+     }
      }
  });

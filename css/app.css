@@ -94,7 +94,7 @@ h1 {
 
 }
 .success {
-    background: linear-gradient(160deg, #464670 0%, #dab78a 100%); !important;
+    background: linear-gradient (160deg, #464670 0%, #dab78a 100%) !important;
 }
 
 /*
