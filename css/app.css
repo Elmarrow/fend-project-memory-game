@@ -93,8 +93,9 @@ h1 {
     transition: all 0.6s linear;
 
 }
-.success {
-    background: linear-gradient (160deg, #464670 0%, #dab78a 100%) !important;
+.card.show.success {
+    
+    opacity: 0;
 }
 
 /*
