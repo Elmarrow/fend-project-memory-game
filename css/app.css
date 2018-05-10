@@ -78,7 +78,6 @@ h1 {
 
 .front{
     z-index: 2;
-    
 }
 
 .back {
@@ -93,7 +92,7 @@ h1 {
     transition: all 0.6s linear;
 
 }
-.card.show.success {
+.card.success {
     
     opacity: 0;
 }
