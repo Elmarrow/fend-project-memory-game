@@ -10,6 +10,7 @@
  *   - add each card's HTML to the page
  */
 
+ 
 // Shuffle function from http://stackoverflow.com/a/2450976
 /*function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -67,7 +68,11 @@
     "img": "img/theorgan.jpg"
  }];
 
-
+ //Setting up variables for selection and matching
+ let count = 0;
+ let firstChoice = "";
+ let secondChoice = "";
+ let delay = 1000;
 
  //Duplicating Array for second indentical set
  let wholeGrid = cardsList.concat(cardsList);
@@ -122,23 +127,17 @@ const success = () => {
 
 
 //Removing the show class and resetting count variable
+ 
 const resetMove = () => {
-    let selected = document.querySelectorAll (".show");
-    selected.forEach (card => {
+    firstChoice = "";
+    secondChoice = "";
+    count = 0;
+
+    var matched = document.querySelectorAll (".show");
+    matched.forEach(card => {
         card.classList.remove("show");
     });
-    let count = 0;
- let firstChoice = "";
- let secondChoice = "";
 };
-
-
-
- //Setting up variables for selection and matching
- let count = 0;
- let firstChoice = "";
- let secondChoice = "";
- let delay = 1000;
 
 
  // Setting event listener for card selection
@@ -160,10 +159,9 @@ const resetMove = () => {
          }
      if (firstChoice && secondChoice) {
          if (firstChoice === secondChoice){
-         success();
-         resetMove ();
+         setTimeout(success, delay);
          }
-         resetMove ();
+         setTimeout(resetMove, delay);
      }
      }
  });
