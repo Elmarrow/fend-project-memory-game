@@ -112,13 +112,25 @@
  });
 
 
- //Adding the success class to the shown cards is there is a success
+ //Adding the success class to the shown cards if there is a success
 const success = () => {
     const matched = document.querySelectorAll (".show");
     matched.forEach(card => {
         card.classList.add("success");
     });
 }
+
+
+//Removing the show class and resetting count variable
+const resetMove = () => {
+    let selected = document.querySelectorAll (".show");
+    selected.forEach (card => {
+        card.classList.remove("show");
+    });
+    let count = 0;
+ let firstChoice = "";
+ let secondChoice = "";
+};
 
 
 
@@ -149,6 +161,7 @@ const success = () => {
      if (firstChoice && secondChoice) {
          if (firstChoice === secondChoice){
          success();
+         resetMove ();
          }
          resetMove ();
      }
