@@ -146,11 +146,11 @@ const resetMove = () => {
  grid.addEventListener("click", function (event){
      let selected = event.target;
      if (selected.nodeName === "SECTION" || 
-     selected === firstClick||
+     selected === firstClick ||
      selected.parentNode.classList.contains ("selected") ||
      selected.parentNode.classList.contains ("success")
     ) {
-         return;
+        return;
      }
      if (count < 2){
          count++;
