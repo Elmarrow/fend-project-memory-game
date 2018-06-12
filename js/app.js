@@ -74,6 +74,8 @@
  let secondChoice = "";
  let delay = 1000;
  let firstClick = null;
+ let moves = 0;
+ let counter = document.querySelector(".moves");
 
  //Duplicating Array for second indentical set
  let wholeGrid = cardsList.concat(cardsList);
@@ -141,13 +143,18 @@ const resetMove = () => {
     });
 };
 
+// Moves counter function
+function movesCounter () {
+    moves++;
+    counter.innerHTML = moves;
+}
 
  // Setting event listener for card selection
  grid.addEventListener("click", function (event){
      let selected = event.target;
      if (selected.nodeName === "SECTION" || 
      selected === firstClick ||
-     selected.parentNode.classList.contains ("selected") ||
+     selected.parentNode.classList.contains ("show") ||
      selected.parentNode.classList.contains ("success")
     ) {
         return;
@@ -169,6 +176,13 @@ const resetMove = () => {
          }
          setTimeout(resetMove, delay);
      }
-     firstClick = selected;
+     else firstClick = selected;
+     }
+     if (count === 2) {
+         movesCounter();
+     }
+     let matchesCount = document.querySelectorAll ("success");
+     if matchesCount === 8 {
+         gameover();
      }
  });
