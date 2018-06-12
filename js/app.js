@@ -146,9 +146,9 @@ const resetMove = () => {
  grid.addEventListener("click", function (event){
      let selected = event.target;
      if (selected.nodeName === "SECTION" || 
-     selected === firstChoice ||
+     selected === firstClick||
      selected.parentNode.classList.contains ("selected") ||
-     selected.parentNode.classList.contains ("matched")
+     selected.parentNode.classList.contains ("success")
     ) {
          return;
      }
@@ -169,6 +169,6 @@ const resetMove = () => {
          }
          setTimeout(resetMove, delay);
      }
-     firstChoice = selected;
+     firstClick = selected;
      }
  });
