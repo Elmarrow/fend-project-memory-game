@@ -75,7 +75,9 @@
  let delay = 1000;
  let firstClick = null;
  let moves = 0;
- let counter = document.querySelector(".moves");
+ const counter = document.querySelector(".moves");
+ let matchesCount= null;
+ 
 
  //Duplicating Array for second indentical set
  let wholeGrid = cardsList.concat(cardsList);
@@ -126,6 +128,7 @@ const success = () => {
     matched.forEach(card => {
         card.classList.add("success");
     });
+    matchesCount = document.querySelectorAll(".success").length;
 }
 
 
@@ -148,6 +151,12 @@ function movesCounter () {
     moves++;
     counter.innerHTML = moves;
 }
+
+//Ends the game
+if (matchesCount === 16) {
+    console.log("Game Over Insert Coin");
+}   
+
 
  // Setting event listener for card selection
  grid.addEventListener("click", function (event){
@@ -173,16 +182,15 @@ function movesCounter () {
      if (firstChoice && secondChoice) {
          if (firstChoice === secondChoice){
          setTimeout(success, delay);
+         
          }
          setTimeout(resetMove, delay);
      }
      else firstClick = selected;
+     
      }
      if (count === 2) {
          movesCounter();
      }
-     let matchesCount = document.querySelectorAll ("success");
-     if matchesCount === 8 {
-         gameover();
-     }
+        
  });
