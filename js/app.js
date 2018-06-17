@@ -129,9 +129,10 @@ const success = () => {
         card.classList.add("success");
     });
     matchesCount++;
-}
+
 if (matchesCount === 8) {
     console.log("Game Over Insert Coin");
+}
 }
 
 //Removing the show class and resetting count variable
