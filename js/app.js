@@ -76,7 +76,7 @@
  let firstClick = null;
  let moves = 0;
  const counter = document.querySelector(".moves");
- let matchesCount= null;
+ let matchesCount= 0;
  
 
  //Duplicating Array for second indentical set
@@ -128,9 +128,11 @@ const success = () => {
     matched.forEach(card => {
         card.classList.add("success");
     });
-    matchesCount = document.querySelectorAll(".success").length;
+    matchesCount++;
 }
-
+if (matchesCount === 8) {
+    console.log("Game Over Insert Coin");
+}
 
 //Removing the show class and resetting count variable
  
@@ -153,9 +155,7 @@ function movesCounter () {
 }
 
 //Ends the game
-if (matchesCount === 16) {
-    console.log("Game Over Insert Coin");
-}   
+ 
 
 
  // Setting event listener for card selection
@@ -192,5 +192,5 @@ if (matchesCount === 16) {
      if (count === 2) {
          movesCounter();
      }
-        
+              
  });
