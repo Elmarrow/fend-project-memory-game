@@ -1,4 +1,3 @@
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -105,7 +104,7 @@ const success = () => {
     matchesCount++;
 
     if (matchesCount === 8) {
-        console.log("Game Over Insert Coin");
+        gameOver();
     }
 }
 
@@ -129,11 +128,8 @@ function movesCounter() {
     counter.innerHTML = moves;
 }
 
-//Ends the game
-
-
-
 // Setting event listener for card selection
+
 grid.addEventListener("click", function (event) {
     let selected = event.target;
     if (selected.nodeName === "SECTION" ||
