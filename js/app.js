@@ -38,7 +38,7 @@ const cardsList = [{
     "img": "img/theorgan.jpg"
 }];
 
-//Setting up variables for selection and matching
+//Setting up variables for the game
 let count = 0;
 let firstChoice = "";
 let secondChoice = "";
@@ -47,6 +47,10 @@ let firstClick = null;
 let moves = 0;
 const counter = document.querySelector(".moves");
 let matchesCount = 0;
+let second = 0;
+let minute = 0;
+let hour = 0;
+const timer = document.querySelector(".timer");
 
 
 //Duplicating Array for second identical set
@@ -127,6 +131,8 @@ function movesCounter() {
     moves++;
     counter.innerHTML = moves;
 }
+
+// Ending the game
 
 // Setting event listener for card selection
 
