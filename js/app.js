@@ -120,7 +120,6 @@ const resetMove = () => {
     secondChoice = "";
     count = 0;
     firstClick = null;
-
     var matched = document.querySelectorAll(".show");
     matched.forEach(card => {
         card.classList.remove("show");
