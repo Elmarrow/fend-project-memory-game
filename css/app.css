@@ -199,6 +199,10 @@ h1 {
     display: inline-block;
 }
 
+#starRating .fa-music{
+    color: red;
+}
+
 #finalMovesCount {
     color: red;
     font-family: 'Fredoka One', cursive;

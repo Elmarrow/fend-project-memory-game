@@ -51,7 +51,8 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 const timer = document.querySelector(".timer");
-let modal = document.getElementById("modal");
+const modal = document.getElementById("modal");
+const ranking = document.querySelectorAll(".fa-music");
 
 
 //Duplicating Array for second identical set
@@ -130,11 +131,33 @@ const resetMove = () => {
 function movesCounter() {
     moves++;
     counter.innerHTML = moves;
+    if(moves == 1){
+        second = 0;
+        minute = 0; 
+        hour = 0;
+        startTimer();
+    }
+    // setting rates based on moves
+    if (moves > 12 && moves < 16){
+        for( i= 0; i < 3; i++){
+            if(i > 1){
+                ranking[i].style.visibility = "collapse";
+            }
+        }
+    }
+    else if (moves > 17){
+        for( i= 0; i < 3; i++){
+            if(i > 0){
+                ranking[i].style.visibility = "collapse";
+            }
+        }
+    }
 }
 
 // Ending the game
 function gameOver() {
     modal.classList.add("showmodal");
+    var starRating = document.querySelector(".music").innerHTML;
     document.getElementById("finalMovesCount").innerHTML = moves;
     document.getElementById("starRating").innerHTML = starRating;
     document.getElementById("totalTime").innerHTML = finalTime;
