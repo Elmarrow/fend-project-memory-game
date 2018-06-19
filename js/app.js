@@ -53,6 +53,7 @@ let hour = 0;
 const timer = document.querySelector(".timer");
 const modal = document.getElementById("modal");
 const ranking = document.querySelectorAll(".fa-music");
+let closeicon = document.querySelector(".modalBox .closedModal");
 
 
 //Duplicating Array for second identical set
@@ -162,6 +163,19 @@ function gameOver() {
     document.getElementById("starRating").innerHTML = starRating;
     document.getElementById("totalTime").innerHTML = finalTime;
     closeModal();
+}
+
+function closeModal(){
+    closeicon.addEventListener("click", function(){
+        modal.classList.remove("show");
+        startGame();
+    });
+}
+
+
+function playAgain(){
+    modal.classList.remove("showmodal");
+    startGame();
 }
 
 // Setting event listener for card selection

@@ -140,7 +140,7 @@ h1 {
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
-    visibility: hidden;
+    visibility: hidden !important;
     opacity: 0;
 }
 
@@ -168,7 +168,7 @@ h1 {
     text-align: center;
 }
 
-.modalBox .close {
+.modalBox .closedModal {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -179,7 +179,7 @@ h1 {
     color: darkslategrey;
 }
 
-.modalBox .close:hover {
+.modalBox .closedModal:hover {
     color:red;
 }
 
@@ -217,7 +217,7 @@ a.play-again {
     box-sizing: border-box;
     text-decoration: none;
     color: white;
-    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.4)   
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.4);   
     transition: all 0.4s;
     font-family: "Righteous", cursive;
 
