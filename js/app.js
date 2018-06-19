@@ -51,6 +51,7 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 const timer = document.querySelector(".timer");
+let modal = document.getElementById("modal");
 
 
 //Duplicating Array for second identical set
@@ -134,7 +135,11 @@ function movesCounter() {
 
 // Ending the game
 function gameOver() {
-    
+    modal.classList.add("showmodal");
+    document.getElementById("finalMovesCount").innerHTML = moves;
+    document.getElementById("starRating").innerHTML = starRating;
+    document.getElementById("totalTime").innerHTML = finalTime;
+    closeModal();
 }
 
 // Setting event listener for card selection
