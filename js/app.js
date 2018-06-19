@@ -133,6 +133,9 @@ function movesCounter() {
 }
 
 // Ending the game
+function gameOver() {
+    
+}
 
 // Setting event listener for card selection
 
