@@ -132,7 +132,7 @@ const resetMove = () => {
 second = 0;
 minute = 0; 
 hour = 0;
-timer.innerHTML = "0 mins 0 secs";
+timer.innerHTML = "0 mins & 0 secs";
 clearInterval(interval);
 
 // Moves counter function
@@ -165,7 +165,7 @@ function movesCounter() {
 //Timer logic
 function startTimer(){
     interval = setInterval(function(){
-        timer.innerHTML = minute+"mins "+second+"secs";
+        timer.innerHTML = minute+" mins & "+second+" secs";
         second++;
         if(second == 60){
             minute++;
