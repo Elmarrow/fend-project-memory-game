@@ -47,13 +47,14 @@ let firstClick = null;
 let moves = 0;
 const counter = document.querySelector(".moves");
 let matchesCount = 0;
+let interval =0;
 let second = 0;
 let minute = 0;
 let hour = 0;
 const timer = document.querySelector(".timer");
 const modal = document.getElementById("modal");
 const ranking = document.querySelectorAll(".fa-music");
-let closeicon = document.querySelector(".modalBox .closedModal");
+let closeicon = document.querySelector(".closedModal");
 
 
 //Duplicating Array for second identical set
@@ -116,17 +117,23 @@ const success = () => {
 }
 
 //Removing the show class and resetting count variable
-
 const resetMove = () => {
     firstChoice = "";
     secondChoice = "";
     count = 0;
     firstClick = null;
-    var matched = document.querySelectorAll(".show");
+    let matched = document.querySelectorAll(".show");
     matched.forEach(card => {
         card.classList.remove("show");
     });
 };
+
+//reset timer
+second = 0;
+minute = 0; 
+hour = 0;
+timer.innerHTML = "0 mins 0 secs";
+clearInterval(interval);
 
 // Moves counter function
 function movesCounter() {
@@ -139,14 +146,14 @@ function movesCounter() {
         startTimer();
     }
     // setting rates based on moves
-    if (moves > 12 && moves < 16){
+    if (moves > 13 && moves < 17){
         for( i= 0; i < 3; i++){
             if(i > 1){
                 ranking[i].style.visibility = "collapse";
             }
         }
     }
-    else if (moves > 17){
+    else if (moves > 18){
         for( i= 0; i < 3; i++){
             if(i > 0){
                 ranking[i].style.visibility = "collapse";
@@ -155,8 +162,26 @@ function movesCounter() {
     }
 }
 
+//Timer logic
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute+"mins "+second+"secs";
+        second++;
+        if(second == 60){
+            minute++;
+            second=0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000);
+}
+
 // Ending the game
 function gameOver() {
+    clearInterval(interval);
+    finalTime = timer.innerHTML;
     modal.classList.add("showmodal");
     var starRating = document.querySelector(".music").innerHTML;
     document.getElementById("finalMovesCount").innerHTML = moves;
@@ -166,12 +191,11 @@ function gameOver() {
 }
 
 function closeModal(){
-    closeicon.addEventListener("click", function(){
-        modal.classList.remove("show");
+    closeicon.addEventListener("click", function(e){
+        modal.classList.remove("showmodal");
         startGame();
     });
 }
-
 
 function playAgain(){
     modal.classList.remove("showmodal");
