@@ -249,5 +249,5 @@ function closeModal(){
 
 function playAgain(){
     modal.classList.remove("showmodal");
-    document.location.reload;
+    document.location.reload();
 }
