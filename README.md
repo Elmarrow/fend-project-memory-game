@@ -1,10 +1,5 @@
 # Memory Game Project
 
-## Table of Contents
-
-* [Object of the Game](#object)
-* [How to Play](#how)
-
 
 ## Object of the Game
 
