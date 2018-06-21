@@ -4,7 +4,7 @@
  */
 
 
-//populating cards array
+//Populating cards array
 const cardsList = [{
     "name": "PinkFloyd",
     "img": "img/pinkfloyd.jpg"
@@ -31,14 +31,18 @@ const cardsList = [{
     "img": "img/theorgan.jpg"
 }];
 
+
 //Setting up variables for the game
 let count, firstChoice, secondChoice, delay, firstClick, moves, matchesCount, interval, second, minute, hour;
 const timer = document.querySelector(".timer");
 const modal = document.getElementById("modal");
 
 
+//Invoking startGame function
 document.body.onload = startGame();
 
+
+//Variables initialization and reseting
 function init() {
     count = 0;
     firstChoice = "";
@@ -53,12 +57,16 @@ function init() {
     hour = 0;
 }
 
+
+//Starting the game
 function startGame() {
     init();
     resetTime();
 
+
     //Duplicating Array for second identical set
     let wholeGrid = cardsList.concat(cardsList);
+
 
     //Random sorting of the wholeGrid array
     wholeGrid.sort(() => 0.25 - Math.random());
@@ -67,12 +75,15 @@ function startGame() {
     //Choosing div with the class container
     const game = document.getElementsByClassName("container");
 
+
     //Create a section with the class grid
     const grid = document.createElement("section");
     grid.setAttribute('class', 'grid');
 
+
     //Append the grid section to the container div 
     game[0].appendChild(grid);
+
 
     // Displaying the images to the front end
     const frontView = "img/frontview.jpg";
@@ -85,18 +96,22 @@ function startGame() {
         card.classList.add("card");
         card.dataset.name = name;
 
+
         const front = document.createElement("div");
         front.classList.add("front");
         front.style.backgroundImage = `url(${frontView})`;
+
 
         const back = document.createElement("div");
         back.classList.add("back");
         back.style.backgroundImage = `url(${img})`;
 
+
         grid.appendChild(card);
         card.appendChild(front);
         card.appendChild(back);
     });
+
 
     // Setting event listener for card selection
     grid.addEventListener("click", function (event) {
@@ -122,19 +137,17 @@ function startGame() {
             if (firstChoice && secondChoice) {
                 if (firstChoice === secondChoice) {
                     setTimeout(success, delay);
-
                 }
                 setTimeout(resetMove, delay);
             } else firstClick = selected;
-
         }
         if (count === 2) {
             movesCounter();
         }
-
     });
-
 }
+
+
 //Adding the success class to the shown cards if there is a success
 const success = () => {
     const matched = document.querySelectorAll(".show");
@@ -160,7 +173,8 @@ const resetMove = () => {
     });
 };
 
-//reset timer
+
+//Reset timer
 function resetTime() {
     second = 0;
     minute = 0;
@@ -168,6 +182,7 @@ function resetTime() {
     timer.innerHTML = "0 mins & 0 secs";
     clearInterval(interval);
 }
+
 
 // Moves counter function
 function movesCounter() {
@@ -180,7 +195,7 @@ function movesCounter() {
         hour = 0;
         startTimer();
     }
-    // setting rates based on moves
+    // Setting up rating based on moves
     const ranking = document.querySelectorAll(".fa-music");
     if (moves > 13 && moves < 17) {
         for (i = 0; i < 3; i++) {
@@ -196,6 +211,7 @@ function movesCounter() {
         }
     }
 }
+
 
 //Timer logic
 function startTimer() {
@@ -215,27 +231,33 @@ function startTimer() {
     }, 1000);
 }
 
+
+//Closing the modal logic
+function closemodal() {
+    const closeicon = document.querySelector(".closed-modal");
+    const closeFunction = function (){
+        modal.classList.remove("show-modal");
+        document.location.reload();
+    }
+    closeicon.addEventListener("click", closeFunction);
+}
+
+
 // Ending the game
 function gameOver() {
     clearInterval(interval);
     finalTime = timer.innerHTML;
-    modal.classList.add("showmodal");
-    var starRating = document.querySelector(".music").innerHTML;
-    document.getElementById("finalMovesCount").innerHTML = moves;
-    document.getElementById("starRating").innerHTML = starRating;
-    document.getElementById("totalTime").innerHTML = finalTime;
-    closeModal();
+    modal.classList.add("show-modal");
+    const starRating = document.querySelector(".music").innerHTML;
+    document.getElementById("final-moves-count").innerHTML = moves;
+    document.getElementById("star-rating").innerHTML = starRating;
+    document.getElementById("total-time").innerHTML = finalTime;
+    closemodal();
 }
 
-function closeModal() {
-    const closeicon = document.querySelector(".closedModal");
-    closeicon.addEventListener("click", function (e) {
-        modal.classList.remove("showmodal");
-        document.location.reload;
-    });
-}
 
+//PLaying again logic
 function playAgain() {
-    modal.classList.remove("showmodal");
+    modal.classList.remove("show-modal");
     document.location.reload();
 }

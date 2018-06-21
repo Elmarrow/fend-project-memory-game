@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -38,25 +39,25 @@
             <div class="timer">
             </div>
 
-            <div class="restart">
+            <div class="restart" onclick="playAgain()">
                 <i class="fas fa-redo"></i>
             </div>
         </section>
         <div id="modal" class="overlay">
-            <div class="modalBox">
+            <div class="modal-box">
                 <h2>Game Over</h2>
-                <a href=# class="closedModal">&times;</a>
-                <div class="modalMessage">
+                <a href=# class="closed-modal">&times;</a>
+                <div class="modal-message">
                     Congratulations you 've won this round
                 </div>
-                <div class="modalScoring">
+                <div class="modal-scoring">
                     <p>You completed this round in:
-                        <span id=finalMovesCount> </span> moves </p>
+                        <span id=final-moves-count> </span> moves </p>
                     <p>and
-                        <span id=totalTime> </span>
+                        <span id=total-time> </span>
                     </p>
                     <p>Rating:
-                        <span id=starRating></span>
+                        <span id=star-rating></span>
                     </p>
                 </div>
                 <div class="btn">
