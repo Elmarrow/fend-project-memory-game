@@ -1,12 +1,6 @@
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ * Memory Card Game: A Udacity FEND Project
+ * 
  */
 
 
@@ -39,27 +33,37 @@ const cardsList = [{
 }];
 
 //Setting up variables for the game
-let count = 0;
-let firstChoice = "";
-let secondChoice = "";
-let delay = 1000;
-let firstClick = null;
-let moves = 0;
-const counter = document.querySelector(".moves");
-let matchesCount = 0;
-let interval =0;
-let second = 0;
-let minute = 0;
-let hour = 0;
+let count, firstChoice, secondChoice, delay, firstClick, moves, matchesCount, interval, second, minute, hour;
+
+function init() {
+    count = 0;
+    firstChoice = "";
+    secondChoice = "";
+    delay = 1000;
+    firstClick = null;
+    moves = 0;
+    matchesCount = 0;
+    interval = 0;
+    second = 0;
+    minute = 0;
+    hour = 0;
+}
+
+
 const timer = document.querySelector(".timer");
 const modal = document.getElementById("modal");
-const ranking = document.querySelectorAll(".fa-music");
-let closeicon = document.querySelector(".closedModal");
 
+
+document.body.onload = startGame();
 
 //Duplicating Array for second identical set
-let wholeGrid = cardsList.concat(cardsList);
 
+
+function startGame(){
+init ();
+resetTime();
+
+let wholeGrid = cardsList.concat(cardsList);
 
 //Random sorting of the wholeGrid array
 wholeGrid.sort(() => 0.25 - Math.random());
@@ -102,7 +106,44 @@ wholeGrid.forEach(item => {
     card.appendChild(back);
 });
 
+// Setting event listener for card selection
 
+grid.addEventListener("click", function (event) {
+    let selected = event.target;
+    if (selected.nodeName === "SECTION" ||
+        selected === firstClick ||
+        selected.parentNode.classList.contains("show") ||
+        selected.parentNode.classList.contains("success")
+    ) {
+        return;
+    }
+    if (count < 2) {
+        count++;
+        if (count === 1) {
+            firstChoice = selected.parentNode.dataset.name;
+            console.log(firstChoice);
+            selected.parentNode.classList.add("show");
+        } else {
+            secondChoice = selected.parentNode.dataset.name;
+            console.log(secondChoice);
+            selected.parentNode.classList.add("show");
+        }
+        if (firstChoice && secondChoice) {
+            if (firstChoice === secondChoice) {
+                setTimeout(success, delay);
+
+            }
+            setTimeout(resetMove, delay);
+        } else firstClick = selected;
+
+    }
+    if (count === 2) {
+        movesCounter();
+    }
+
+});
+
+}
 //Adding the success class to the shown cards if there is a success
 const success = () => {
     const matched = document.querySelectorAll(".show");
@@ -129,15 +170,19 @@ const resetMove = () => {
 };
 
 //reset timer
-second = 0;
-minute = 0; 
-hour = 0;
-timer.innerHTML = "0 mins & 0 secs";
-clearInterval(interval);
+function resetTime (){
+    second = 0;
+    minute = 0; 
+    hour = 0;
+    timer.innerHTML = "0 mins & 0 secs";
+    clearInterval(interval);
+}
+
 
 // Moves counter function
 function movesCounter() {
     moves++;
+    const counter = document.querySelector(".moves");
     counter.innerHTML = moves;
     if(moves == 1){
         second = 0;
@@ -146,6 +191,7 @@ function movesCounter() {
         startTimer();
     }
     // setting rates based on moves
+    const ranking = document.querySelectorAll(".fa-music");
     if (moves > 13 && moves < 17){
         for( i= 0; i < 3; i++){
             if(i > 1){
@@ -193,50 +239,20 @@ function gameOver() {
 }
 
 function closeModal(){
+    const closeicon = document.querySelector(".closedModal");
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("showmodal");
+        removeGrid();
         startGame();
     });
 }
 
 function playAgain(){
     modal.classList.remove("showmodal");
+    removeGrid();
     startGame();
 }
 
-// Setting event listener for card selection
-
-grid.addEventListener("click", function (event) {
-    let selected = event.target;
-    if (selected.nodeName === "SECTION" ||
-        selected === firstClick ||
-        selected.parentNode.classList.contains("show") ||
-        selected.parentNode.classList.contains("success")
-    ) {
-        return;
-    }
-    if (count < 2) {
-        count++;
-        if (count === 1) {
-            firstChoice = selected.parentNode.dataset.name;
-            console.log(firstChoice);
-            selected.parentNode.classList.add("show");
-        } else {
-            secondChoice = selected.parentNode.dataset.name;
-            console.log(secondChoice);
-            selected.parentNode.classList.add("show");
-        }
-        if (firstChoice && secondChoice) {
-            if (firstChoice === secondChoice) {
-                setTimeout(success, delay);
-
-            }
-            setTimeout(resetMove, delay);
-        } else firstClick = selected;
-
-    }
-    if (count === 2) {
-        movesCounter();
-    }
-
-});
+function removeGrid (){
+    document.classList.remove("container");
+}
