@@ -2,19 +2,16 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Object of the Game](#object)
+* [How to Play](#how)
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Object of the Game
 
-To get started, open `js/app.js` and start building out the app's functionality
+The object of the game is to collect all the matching pairs.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+This is a copycat of the classic Concentration memory match card game that is played with actual cards. Playing memory match games is a fun, effective way for adults and children to improve memory.
 
-## Contributing
+## How to Play
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Click any card to overturn it, then overturn another card. If both are the same they are removed. Only two cards can be overturned at a time.
