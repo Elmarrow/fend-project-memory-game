@@ -56,13 +56,14 @@ const modal = document.getElementById("modal");
 
 document.body.onload = startGame();
 
-//Duplicating Array for second identical set
+
 
 
 function startGame(){
 init ();
 resetTime();
 
+//Duplicating Array for second identical set
 let wholeGrid = cardsList.concat(cardsList);
 
 //Random sorting of the wholeGrid array
@@ -242,17 +243,11 @@ function closeModal(){
     const closeicon = document.querySelector(".closedModal");
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("showmodal");
-        removeGrid();
-        startGame();
+        document.location.reload;
     });
 }
 
 function playAgain(){
     modal.classList.remove("showmodal");
-    removeGrid();
-    startGame();
-}
-
-function removeGrid (){
-    document.classList.remove("container");
+    document.location.reload;
 }
