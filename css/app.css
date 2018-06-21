@@ -229,3 +229,18 @@ a.play-again:hover {
 .btn {
     text-align: center;
 }
+
+.min {
+    font-family: 'Special Elite', cursive;
+    color:black;
+}
+
+.sec {
+    font-family: 'Special Elite', cursive;
+    color:black;
+}
+
+#totalTime {
+    color: red;
+    font-family: 'Fredoka One', cursive;
+}

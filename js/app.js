@@ -165,7 +165,9 @@ function movesCounter() {
 //Timer logic
 function startTimer(){
     interval = setInterval(function(){
-        timer.innerHTML = minute+" mins & "+second+" secs";
+        let mins = "<span class='min'> mins & </span>";
+        let secs = "<span class='sec'> secs</span>";
+        timer.innerHTML = minute+mins+second+secs;
         second++;
         if(second == 60){
             minute++;
